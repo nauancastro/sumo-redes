@@ -23,8 +23,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033991337, 0)
 shape = SubResource("ConvexPolygonShape3D_4xowi")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0.009, 8, 6.5)
+transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0.07363826, 10.166212, 7.5500574)
 doppler_tracking = 2
+fov = 81.138275
 
 [node name="Player" parent="." instance=ExtResource("1_a202f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999495, -0.0010197591, -0.031760734, 0.031777103, 0.032074865, 0.9989802, 3.7252903e-09, -0.999485, 0.03209107, 0.067039356, 10.065815, 2.5360613)
