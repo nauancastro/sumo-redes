@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="sumo redes"
+run/main_scene="uid://c7ooni61g3rtp"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
