@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="sumo redes"
-run/main_scene="uid://bkqsa26xcsuve"
+run/main_scene="uid://d22uei2280vaj"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+HighLevelNetworkHandler="*res://high_level_network_handler.gd"
 
 [rendering]
 

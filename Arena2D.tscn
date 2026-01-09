@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkqsa26xcsuve"]
+[gd_scene load_steps=7 format=3 uid="uid://bkqsa26xcsuve"]
 
-[ext_resource type="Texture2D" uid="uid://c4h4pq6hbtnq0" path="res://Spr_p1.png" id="1_osfmv"]
 [ext_resource type="Texture2D" uid="uid://cviulo057o2v6" path="res://Spr_Background.png" id="1_q81rp"]
-[ext_resource type="Script" uid="uid://cqsmkq00tyisp" path="res://p_1.gd" id="1_wixm2"]
+[ext_resource type="Script" uid="uid://jme5tw0sfmdr" path="res://arena_2d.gd" id="1_qjdkf"]
 [ext_resource type="Texture2D" uid="uid://bws6rn2vhk083" path="res://Spr_arena.png" id="3_qjdkf"]
-[ext_resource type="Script" uid="uid://bi6ljbt7eu5et" path="res://p_2.gd" id="4_qjdkf"]
-[ext_resource type="Texture2D" uid="uid://7klrqp4ud4tm" path="res://Spr_p2.png" id="4_s0cqf"]
 [ext_resource type="Texture2D" uid="uid://chj2b0j4qe4ds" path="res://Spr_marcador.png" id="7_r658e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wixm2"]
@@ -22,10 +19,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lm7k"]
-size = Vector2(64, 64)
-
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_qjdkf")
 
 [node name="Spr_background" type="Sprite2D" parent="."]
 position = Vector2(592.00006, 328)
@@ -45,28 +40,6 @@ scale = Vector2(2, 1.9999995)
 sprite_frames = SubResource("SpriteFrames_miecr")
 animation = &"Arena"
 
-[node name="P1" type="CharacterBody2D" parent="."]
-position = Vector2(736, 224)
-script = ExtResource("1_wixm2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P1"]
-shape = SubResource("RectangleShape2D_4lm7k")
-
-[node name="Sprite2D" type="Sprite2D" parent="P1"]
-scale = Vector2(4.000001, 3.9999998)
-texture = ExtResource("1_osfmv")
-
-[node name="P2" type="CharacterBody2D" parent="."]
-position = Vector2(352, 224)
-script = ExtResource("4_qjdkf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P2"]
-shape = SubResource("RectangleShape2D_4lm7k")
-
-[node name="Sprite2D" type="Sprite2D" parent="P2"]
-scale = Vector2(3.9999967, 4)
-texture = ExtResource("4_s0cqf")
-
 [node name="Spr_mark 2" type="Sprite2D" parent="."]
 position = Vector2(976, 416)
 scale = Vector2(-2, 2)
@@ -76,3 +49,13 @@ texture = ExtResource("7_r658e")
 position = Vector2(176, 416)
 scale = Vector2(2, 2)
 texture = ExtResource("7_r658e")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://btah1thunk6d7", "uid://bpyxb72hh1pvx")
+spawn_path = NodePath("..")
+
+[node name="SpawnPoint1" type="Marker2D" parent="."]
+position = Vector2(240, 407)
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(901, 407)
