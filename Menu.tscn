@@ -71,73 +71,60 @@ text = "42069"
 placeholder_text = "Digite a porta"
 alignment = 1
 
-[node name="VboxJoin" type="VBoxContainer" parent="."]
+[node name="VBoxNome" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 198.0
+offset_right = 727.0
+offset_bottom = 248.0
+
+[node name="PlaceholderNome" type="Sprite2D" parent="VBoxNome"]
+position = Vector2(172, 14)
+scale = Vector2(5.8, 1.625)
+texture = ExtResource("5_dolsu")
+
+[node name="InputNome" type="LineEdit" parent="VBoxNome"]
+layout_mode = 2
+placeholder_text = "Digite seu nome"
+alignment = 1
+max_length = 20
+
+[node name="ServidoresContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 381.0
 offset_top = 297.0
-offset_right = 729.0
-offset_bottom = 412.0
+offset_right = 730.0
+offset_bottom = 500.0
 
-[node name="BtnJoin" type="Sprite2D" parent="VboxJoin"]
-position = Vector2(174, 57)
-scale = Vector2(5.8, 5.8)
-texture = ExtResource("2_ylpcl")
+[node name="ServidoresTitle" type="Label" parent="ServidoresContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "🌐 Servidores Disponíveis"
+horizontal_alignment = 1
 
-[node name="btn_join" type="Button" parent="VboxJoin/BtnJoin"]
-modulate = Color(0.59607846, 0.91764706, 0.90588236, 0.24705882)
-clip_children = 2
-offset_left = -29.999998
-offset_top = -10.000003
-offset_right = 29.999994
-offset_bottom = 10.000001
+[node name="ServerList" type="ItemList" parent="ServidoresContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+allow_reselect = true
 
-[node name="Label" type="Label" parent="."]
+[node name="BtnRefresh" type="Button" parent="ServidoresContainer"]
+layout_mode = 2
+text = "🔄 Atualizar"
+
+[node name="RankingContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 775.0
-offset_top = 609.0
-offset_right = 1133.0
-offset_bottom = 640.0
-theme_type_variation = &"GraphFrameTitleLabel"
-text = "Made by NO intiendo productions"
+offset_left = 850.0
+offset_top = 100.0
+offset_right = 1100.0
+offset_bottom = 350.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.040000003
-anchor_top = 0.039
-anchor_right = 0.040000003
-anchor_bottom = 0.039
-offset_left = 334.91998
-offset_top = 389.728
-offset_right = 683.92
-offset_bottom = 422.728
-
-[node name="Placeholder" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(174.00002, 15.750017)
-scale = Vector2(5.7999997, 1.6250007)
-texture = ExtResource("5_dolsu")
-
-[node name="InputIP" type="LineEdit" parent="VBoxContainer"]
+[node name="RankingTitle" type="Label" parent="RankingContainer"]
 layout_mode = 2
-text = "127.0.0.1"
-placeholder_text = "Digite o IP do Host"
-alignment = 1
-context_menu_enabled = false
-emoji_menu_enabled = false
+text = "🏆 RANKING 🏆"
+horizontal_alignment = 1
 
-[node name="Placeholder2" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(174.99997, 49.999985)
-scale = Vector2(5.7999997, 1.6250007)
-texture = ExtResource("5_dolsu")
-
-[node name="InputPORT" type="LineEdit" parent="VBoxContainer"]
+[node name="RankingList" type="VBoxContainer" parent="RankingContainer"]
 layout_mode = 2
-text = "42069"
-placeholder_text = "Digite a Porta do Host"
-alignment = 1
-context_menu_enabled = false
-emoji_menu_enabled = false
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="pressed" from="VboxHost/BtnHost/btn_host" to="." method="_on_btn_host_pressed"]
-[connection signal="pressed" from="VboxJoin/BtnJoin/btn_join" to="." method="_on_btn_join_pressed"]

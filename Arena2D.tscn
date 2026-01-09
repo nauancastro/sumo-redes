@@ -59,3 +59,61 @@ position = Vector2(240, 407)
 
 [node name="SpawnPoint2" type="Marker2D" parent="."]
 position = Vector2(901, 407)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScorePanel" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 450.0
+offset_top = 10.0
+offset_right = 700.0
+offset_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ScorePanel"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/ScorePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0 - 0"
+horizontal_alignment = 1
+
+[node name="NamesLabel" type="Label" parent="CanvasLayer/ScorePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "P1 vs P2"
+horizontal_alignment = 1
+
+[node name="WinnerPanel" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+offset_left = 350.0
+offset_top = 200.0
+offset_right = 800.0
+offset_bottom = 400.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/WinnerPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="WinnerLabel" type="Label" parent="CanvasLayer/WinnerPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "VENCEDOR!"
+horizontal_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="CanvasLayer/WinnerPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Placar: 5 - 3"
+horizontal_alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="CanvasLayer/WinnerPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnPlayAgain" type="Button" parent="CanvasLayer/WinnerPanel/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "Jogar Novamente"
+
+[node name="BtnMenu" type="Button" parent="CanvasLayer/WinnerPanel/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "Menu"

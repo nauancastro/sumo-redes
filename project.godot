@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 HighLevelNetworkHandler="*res://high_level_network_handler.gd"
+GameData="*res://game_data.gd"
+ServerDiscovery="*res://server_discovery.gd"
 
 [rendering]
 

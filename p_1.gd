@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_fell(player_id: int)
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const BASE_PUSH_FORCE = 80.0
@@ -84,6 +86,8 @@ func _physics_process(delta: float) -> void:
 
 		# Correção de queda/teto
 		if global_position.y > 1000 or global_position.y < -2000:
+			# Emite sinal de queda antes de resetar
+			player_fell.emit(name.to_int())
 			velocity = Vector2.ZERO
 			if name == "1":
 				position = Vector2(300, 300) 
