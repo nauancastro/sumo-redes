@@ -111,6 +111,23 @@ allow_reselect = true
 layout_mode = 2
 text = "🔄 Atualizar"
 
+[node name="VBoxDirectConnect" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 520.0
+offset_right = 730.0
+offset_bottom = 600.0
+
+[node name="InputIP" type="LineEdit" parent="VBoxDirectConnect"]
+layout_mode = 2
+text = "127.0.0.1"
+placeholder_text = "IP do Servidor"
+alignment = 1
+
+[node name="BtnDirectConnect" type="Button" parent="VBoxDirectConnect"]
+layout_mode = 2
+text = "🔗 Conectar via IP"
+
 [node name="RankingContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 850.0

@@ -4,6 +4,8 @@ extends Control
 @onready var ranking_list = $RankingContainer/RankingList
 @onready var server_list = $ServidoresContainer/ServerList
 @onready var btn_refresh = $ServidoresContainer/BtnRefresh
+@onready var input_ip = $VBoxDirectConnect/InputIP
+@onready var btn_direct = $VBoxDirectConnect/BtnDirectConnect
 
 # Lista de servidores encontrados (para mapear índice -> info)
 var servers_data: Array = []
@@ -17,6 +19,7 @@ func _ready():
 	# Conecta sinais da UI
 	server_list.item_selected.connect(_on_server_selected)
 	btn_refresh.pressed.connect(_on_refresh_pressed)
+	btn_direct.pressed.connect(_on_direct_connect_pressed)
 	
 	# Inicia escuta de servidores
 	ServerDiscovery.start_listening()
@@ -70,6 +73,17 @@ func _on_refresh_pressed():
 	ServerDiscovery.refresh_servers()
 	server_list.clear()
 	server_list.add_item("Procurando servidores...")
+
+func _on_direct_connect_pressed():
+	var ip = input_ip.text.strip_edges()
+	if ip.is_empty():
+		return
+		
+	# Usa a porta definida no input de Host (ou padrão)
+	var port_text = $VboxInputHost/PortInput.text
+	var port = port_text.to_int() if not port_text.is_empty() else 42069
+	
+	_connect_to_server(ip, port)
 
 func _connect_to_server(ip: String, port: int):
 	_save_player_name()
